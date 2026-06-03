@@ -24,11 +24,11 @@
 
 | Configure & Build | Parts Catalog |
 |---|---|
-| ![Configure](screenshots/configure.png) | ![Parts](screenshots/parts.png) |
+| ![Configure](screenshots/configure.png.png) | ![Parts](screenshots/parts.png.png) |
 
 | Price History | Saved Quotes |
 |---|---|
-| ![History](screenshots/history.png) | ![Quotes](screenshots/quotes.png) |
+| ![History](screenshots/history.png.png) | ![Quotes](screenshots/quotes.png.png) |
 
 ---
 
