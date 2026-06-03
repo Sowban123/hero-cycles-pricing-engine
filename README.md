@@ -270,11 +270,6 @@ Parts are never hard-deleted — they're flagged `is_active=False`. This preserv
 
 **Mohammed Sowban** — Python/Django Backend Developer
 
-- 🔧 Stack: Python · Django · DRF · FastAPI · React · PostgreSQL · Redis · Docker
-- 🌐 Live project: [muwas.in](https://muwas.in)
-- 💼 Internship: Colan Infotech Pvt Ltd
-- 📍 Chennai, India
-
 ---
 
 <div align="center">
