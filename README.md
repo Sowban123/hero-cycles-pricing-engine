@@ -14,7 +14,7 @@
 
 **A production-ready pricing engine for Hero Cycles' sales team — replacing Excel sheets with a real-time, database-backed configuration and quoting system.**
 
-[🔴 Live Demo](#) · [📖 API Docs](#api-endpoints) · [🏗 Architecture](#architecture)
+
 
 </div>
 
@@ -32,7 +32,7 @@
 
 ---
 
-## 🎯 The Problem
+##  The Problem
 
 Hero Cycles manages thousands of cycle configurations across different frames, gear sets, and tyre types. Part costs change every few months — a tyre priced at ₹200 in January may be ₹230 by December. The sales team was doing all of this on Excel sheets, causing:
 
@@ -43,20 +43,20 @@ Hero Cycles manages thousands of cycle configurations across different frames, g
 
 ---
 
-## ✅ What I Built
+##  What I Built
 
 A full-stack pricing engine where:
 
-- 🛠 **Sales team** can configure a cycle build from a live parts catalog and get an instant price breakdown by component
-- 💰 **Margin is adjustable** per quote (0–80%) with a live slider
-- 📦 **Parts catalog** is fully manageable — add new parts, update prices with reasons
-- 🔒 **Quotes are immutable snapshots** — price changes never affect historical quotes
-- 📈 **Every price change is logged** in a permanent audit trail
-- 💾 **All data persists** in a SQLite database via Django REST API
+-  **Sales team** can configure a cycle build from a live parts catalog and get an instant price breakdown by component
+-  **Margin is adjustable** per quote (0–80%) with a live slider
+-  **Parts catalog** is fully manageable — add new parts, update prices with reasons
+-  **Quotes are immutable snapshots** — price changes never affect historical quotes
+-  **Every price change is logged** in a permanent audit trail
+-  **All data persists** in a SQLite database via Django REST API
 
 ---
 
-## 🏗 Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────┐
@@ -84,7 +84,7 @@ A full-stack pricing engine where:
 
 ---
 
-## 🗂 Project Structure
+##  Project Structure
 
 ```
 hero-cycles-pricing-engine/
@@ -124,7 +124,7 @@ hero-cycles-pricing-engine/
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 
 ### Backend
 
@@ -169,7 +169,7 @@ App available at: `http://localhost:5173`
 
 ---
 
-## 📡 API Endpoints
+##  API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -208,7 +208,7 @@ Response:
 
 ---
 
-## 🧠 Key Design Decisions
+##  Key Design Decisions
 
 ### 1. Quotes snapshot prices — not live references
 When a quote is saved, the part name and price are **copied into the quote's line items**, not just referenced. This means if a tyre goes from ₹200 → ₹230 in December, the January quote still correctly shows ₹200. This is how every real invoicing system (Zoho, Tally, Salesforce CPQ) works.
@@ -224,7 +224,7 @@ Parts are never hard-deleted — they're flagged `is_active=False`. This preserv
 
 ---
 
-## ❓ Questions I Asked Before Building
+##  Questions I Asked Before Building
 
 1. How many unique parts exist today — 10s, 100s, 1000s?
 2. Can one cycle use multiple quantities of the same part (e.g. 2 tyres)?
@@ -239,7 +239,7 @@ Parts are never hard-deleted — they're flagged `is_active=False`. This preserv
 
 ---
 
-## 📋 Assumptions Made
+##  Assumptions Made
 
 | # | Assumption | Reason |
 |---|---|---|
@@ -253,7 +253,7 @@ Parts are never hard-deleted — they're flagged `is_active=False`. This preserv
 
 ---
 
-## 🔮 What I'd Build Next
+##  What I'd Build Next
 
 1. **Role-based auth** — Salesperson vs Pricing Admin vs Manager
 2. **PDF export** — Printable quote for customers
@@ -266,7 +266,7 @@ Parts are never hard-deleted — they're flagged `is_active=False`. This preserv
 
 ---
 
-## 👨‍💻 About Me
+##  About Me
 
 **Mohammed Sowban** — Python/Django Backend Developer
 
