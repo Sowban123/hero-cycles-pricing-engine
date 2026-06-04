@@ -20,7 +20,7 @@
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 | Configure & Build | Parts Catalog |
 |---|---|
@@ -112,7 +112,7 @@ hero-cycles-pricing-engine/
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology | Why |
 |---|---|---|
@@ -207,7 +207,7 @@ Response:
 ```
 ---
 
-## 📝 Pseudocode
+##  Pseudocode
 
 ### Add Part to Catalog
 FUNCTION add_part(name, category, price, sku, supplier):
