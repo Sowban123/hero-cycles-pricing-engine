@@ -205,6 +205,62 @@ Response:
   ]
 }
 ```
+---
+
+## 📝 Pseudocode
+
+### Add Part to Catalog
+FUNCTION add_part(name, category, price, sku, supplier):
+VALIDATE name is not empty
+VALIDATE price > 0
+VALIDATE category in [Frame, Gear Set, Tyre, Brakes, Other]
+CREATE part with:
+id = generate_uuid()
+current_price = price
+is_active = True
+SAVE to database
+RETURN part
+
+### Update Part Price (with audit trail)
+FUNCTION update_price(part_id, new_price, reason):
+FIND part by part_id
+IF not found → RAISE error
+CREATE PriceHistory record:
+old_price = part.current_price
+new_price = new_price
+reason = reason
+changed_at = now()
+SET part.current_price = new_price
+SAVE part
+NOTE: existing quotes are NOT affected (they store snapshots)
+RETURN updated part
+
+### Build Configuration & Compute Price
+FUNCTION compute_price(line_items, margin_pct):
+subtotal = 0
+FOR each item in line_items:
+FIND part by item.part_id
+line_total = part.current_price × item.quantity
+subtotal += line_total
+SNAPSHOT part_name and unit_price into line item
+margin_amount = ROUND(subtotal × margin_pct / 100)
+total = subtotal + margin_amount
+RETURN { line_items, subtotal, margin_amount, total }
+
+### Save Quote (immutable snapshot)
+FUNCTION save_quote(line_items, margin_pct):
+price_data = compute_price(line_items, margin_pct)
+CREATE Quote:
+id = generate_quote_id()  // e.g. Q-1001
+line_items = price_data.line_items  // snapshots, not references
+subtotal = price_data.subtotal
+margin_amount = price_data.margin_amount
+total = price_data.total
+created_at = now()
+SAVE to database
+RETURN quote
+// Future price changes will NOT affect this saved quote
+
 
 ---
 
